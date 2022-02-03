@@ -13,12 +13,11 @@ class handler(BaseHTTPRequestHandler):
     if 'platforms' in dic:
       url = 'https://www.gamerpower.com/api/giveaways'
       url = url + '?platform=' + dic['platforms']
-      print(url)
       r = requests.get(url)
       data = r.json()
       games = []
       for game_data in data:
-        giveaways = game_data['platforms']
+        giveaways = game_data['platforms']['title']
         games.append(giveaways)
       message = str(games)
     else:
