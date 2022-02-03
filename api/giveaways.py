@@ -10,8 +10,12 @@ class handler(BaseHTTPRequestHandler):
     query_string_list = parse.parse_qsl(url_components.query)
     dic = dict(query_string_list)
     # GET https://www.gamerpower.com/api/giveaways?platform=pc
-    r = requests.get('https://www.gamerpower.com/api/giveaways')
-    print(r.json())
+    if 'platform' in dic:
+      url = 'https://www.gamerpower.com/api/giveaways'
+      r = requests.get(url + dic['platform'])
+      
+    
+    
     self.send_response(200)
     self.send_header('Content-type', 'text/plain')
     self.end_headers()
