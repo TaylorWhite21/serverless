@@ -16,9 +16,9 @@ class handler(BaseHTTPRequestHandler):
       r = requests.get(url)
       data = r.json()
       games = []
-      for game_data in data:
-        giveaways = game_data['platforms']['title']
-        games.append(giveaways)
+      # for game_data in data:
+      giveaways = data['platforms']['title']
+      games.append(giveaways)
       message = str(games)
     else:
       message = ('Please provide a valid platform')
