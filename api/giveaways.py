@@ -13,20 +13,19 @@ class handler(BaseHTTPRequestHandler):
     if 'platform' in dic:
       url = 'https://www.gamerpower.com/api/giveaways'
       r = requests.get(url + dic['platform'])
-      self.wfile.write(r)
-      # data = r.json()
-    #   games = []
-    #   for game_data in data:
-    #     giveaways = game_data['platforms']
-    #     games.append(giveaways)
-    #   message = str(games)
-    # else:
-    #   message = ('Please provide a valid platform')
+      data = r.json()
+      games = []
+      for game_data in data:
+        giveaways = game_data['platforms']
+        games.append(giveaways)
+      message = str(games)
+    else:
+      message = ('Please provide a valid platform')
   
     self.send_response(200)
     self.send_header('Content-type', 'text/plain')
     self.end_headers()
-    
+    self.wfile.write(message.encode())
     return
 
 
