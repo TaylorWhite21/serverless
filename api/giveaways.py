@@ -23,9 +23,9 @@ class handler(BaseHTTPRequestHandler):
     # else:
     #   message = ('Please provide a valid platform')
   
-    # self.send_response(200)
-    # self.send_header('Content-type', 'text/plain')
-    # self.end_headers()
+    self.send_response(200)
+    self.send_header('Content-type', 'text/plain')
+    self.end_headers()
     
     return
 
