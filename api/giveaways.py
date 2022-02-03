@@ -19,8 +19,3 @@ class handler(BaseHTTPRequestHandler):
       url = 'https://www.gamerpower.com/api/giveaways'
       r = requests.get(url + dic['platforms'])
       print(r)
-      data = r.json()
-      # giveaways = []
-      # for game_data in data:
-      #   giveaways = 
-      print(data)
