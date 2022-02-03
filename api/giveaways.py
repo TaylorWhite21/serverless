@@ -12,7 +12,7 @@ class handler(BaseHTTPRequestHandler):
     # GET https://www.gamerpower.com/api/giveaways?platform=pc
     if 'platforms' in dic:
       url = 'https://www.gamerpower.com/api/giveaways'
-      url = url + dic['platforms']
+      url = url + '?platform=' + dic['platforms']
       print(url)
       r = requests.get(url)
       data = r.json()
