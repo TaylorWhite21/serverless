@@ -9,7 +9,6 @@ class handler(BaseHTTPRequestHandler):
     url_components = parse.urlsplit(url_path)
     query_string_list = parse.parse_qsl(url_components.query)
     dic = dict(query_string_list)
-    # GET https://www.gamerpower.com/api/giveaways?platform=pc
     if 'platforms' in dic:
       url = 'https://www.gamerpower.com/api/giveaways'
       url = url + '?platform=' + dic['platforms']
